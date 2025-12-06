@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Munachimso Onwumere | Premium Content Writer</title>
+    <style>
+        /* --- CSS VARIABLES & RESET --- */
+        :root {
+            /* Brand Colors based on your images */
+            --brand-primary: #5c0012; /* Deep Burgundy */
+            --brand-secondary: #8a001a; /* Lighter Red */
+            --text-light: #ffffff;
+            --text-dim: #e0e0e0;
+            --glass-bg: rgba(255, 255, 255, 0.08);
+            --glass-border: rgba(255, 255, 255, 0.2);
+            --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+            --accent: #ffd700; /* Gold accent for "Premium" feel */
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, var(--brand-primary), #2b0005);
+            color: var(--text-light);
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        /* --- GLOBAL UTILITIES --- */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .highlight {
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        /* --- GLASSMORPHISM CLASS --- */
+        .glass-panel {
+            background: var(--glass-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            box-shadow: var(--glass-shadow);
+        }
+
+        /* --- NAVIGATION --- */
+        nav {
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            background: rgba(92, 0, 18, 0.8);
+            backdrop-filter: blur(10px);
+        }
+        
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            margin-left: 30px;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            padding-top: 150px;
+            padding-bottom: 80px;
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+
+        .hero-text {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        .hero h2 {
+            font-size: 1.5rem;
+            color: var(--accent);
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: var(--text-dim);
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: var(--accent);
+            color: #000;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 30px;
+            transition: transform 0.3s ease;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-3px);
+            background: #fff;
+        }
+
+        .hero-image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            min-width: 300px;
+        }
+
+        .hero-img-container {
+            width: 350px;
+            height: 450px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .hero-img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top;
+        }
+
+        /* --- SERVICES STRIP --- */
+        .services-strip {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-bottom: 80px;
+        }
+
+        .service-badge {
+            padding: 15px 30px;
+            text-transform: uppercase;
+            font-weight: bold;
+            letter-spacing: 1px;
+            text-align: center;
+        }
+
+        /* --- EXPERIENCE & EDUCATION GRID --- */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 100px;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            border-bottom: 2px solid var(--accent);
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+
+        .info-card {
+            padding: 25px;
+            margin-bottom: 20px;
+        }
+
+        .info-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+            color: var(--accent);
+        }
+
+        .info-card h4 {
+            font-size: 1rem;
+            margin-bottom: 10px;
+            opacity: 0.9;
+        }
+
+        .info-card span {
+            font-size: 0.8rem;
+            color: var(--text-dim);
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .info-card ul {
+            list-style-position: inside;
+            font-size: 0.9rem;
+            color: var(--text-dim);
+        }
+
+        /* --- INTERACTIVE SLIDING SECTION (Projects/Testimonials) --- */
+        .interactive-section {
+            margin-bottom: 100px;
+            padding: 40px;
+        }
+
+        /* Tabs */
+        .tabs-header {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 40px;
+            border-bottom: 1px solid var(--glass-border);
+        }
+
+        .tab-btn {
+            background: transparent;
+            border: none;
+            color: var(--text-dim);
+            padding: 15px 40px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            position: relative;
+            transition: color 0.3s;
+        }
+
+        .tab-btn.active {
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        .tab-btn.active::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--accent);
+        }
+
+        /* Slider Container */
+        .tab-content {
+            display: none; /* Hidden by default */
+            position: relative;
+            min-height: 400px;
+        }
+
+        .tab-content.active-content {
+            display: block;
+        }
+
+        /* The Slides */
+        .slide {
+            display: none;
+            text-align: center;
+            animation: fadeEffect 1s;
+        }
+
+        .slide.active-slide {
+            display: block;
+        }
+
+        @keyframes fadeEffect {
+            from {opacity: 0;}
+            to {opacity: 1;}
+        }
+
+        /* Project Slide Specifics */
+        .project-img {
+            width: 100%;
+            max-width: 600px;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            border: 1px solid var(--glass-border);
+        }
+
+        /* Testimonial Slide Specifics */
+        .testimonial-text {
+            font-size: 1.3rem;
+            font-style: italic;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .author-img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--accent);
+        }
+
+        /* Navigation Arrows */
+        .slider-nav {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+            pointer-events: none; /* Let clicks pass through to content if needed */
+        }
+
+        .nav-arrow {
+            pointer-events: auto;
+            background: var(--brand-secondary);
+            color: white;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: 0.3s;
+        }
+
+        .nav-arrow:hover {
+            background: var(--accent);
+            color: black;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            text-align: center;
+            padding: 40px;
+            border-top: 1px solid var(--glass-border);
+            color: var(--text-dim);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .hero { flex-direction: column-reverse; text-align: center; }
+            .hero-img-container { width: 100%; max-width: 300px; height: 350px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAV -->
+    <nav>
+        <div class="container nav-content">
+            <div class="logo">Munachimso <span class="highlight">.</span></div>
+            <div class="nav-links">
+                <a href="#about">About</a>
+                <a href="#slider-section">Portfolio</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <header class="container hero">
+        <div class="hero-text">
+            <h2>Premium Content Writer</h2>
+            <h1>Simplified Content That <span class="highlight">Resonates Better</span> & Triples Results.</h1>
+            <p>
+                Law Student (LLB) & Certified SEO Writer. I bridge the gap between complex legal concepts and engaging, audience-driven content.
+            </p>
+            <a href="mailto:your-email@example.com" class="cta-btn">Send a DM to Work 1:1</a>
+        </div>
+        <div class="hero-image">
+            <div class="glass-panel hero-img-container">
+                <!-- REPLACE WITH YOUR IMAGE -->
+                <img src="assets/munachimso-profile.png" alt="Munachimso Onwumere"> 
+            </div>
+        </div>
+    </header>
+
+    <!-- SERVICES STRIP -->
+    <section class="container services-strip">
+        <div class="glass-panel service-badge">Blog Posts</div>
+        <div class="glass-panel service-badge">Newsletters</div>
+        <div class="glass-panel service-badge">Articles</div>
+        <div class="glass-panel service-badge">Legal Writing</div>
+    </section>
+
+    <!-- EDUCATION & EXPERIENCE GRID -->
+    <section id="about" class="container info-grid">
+        
+        <!-- Experience Column -->
+        <div>
+            <h2 class="section-title">Experience & Volunteering</h2>
+            
+            <div class="glass-panel info-card">
+                <h3>Content Writer</h3>
+                <h4>IADICEY</h4>
+                <span>May 2025 - Present</span>
+                <p>Contributing high-quality written content to enhance brand visibility.</p>
+            </div>
+
+            <div class="glass-panel info-card">
+                <h3>Content Writer</h3>
+                <h4>Rescue Perishing Generation Africa (NGO)</h4>
+                <span>Oct 2024 - Present</span>
+                <ul>
+                    <li>Create engaging captions for LinkedIn, X, and Instagram.</li>
+                    <li>Participate in writing challenges to strengthen skills.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Education Column -->
+        <div>
+            <h2 class="section-title">Education & Certifications</h2>
+            
+            <div class="glass-panel info-card">
+                <h3>Bachelor of Laws (LLB)</h3>
+                <h4>Imo State University</h4>
+                <span>2023 - 2027</span>
+                <p>Member, Lord Denning Chambers.</p>
+            </div>
+
+            <div class="glass-panel info-card">
+                <h3>Certifications</h3>
+                <ul>
+                    <li><strong>SEO with Semrush</strong> (Issued May 2025)</li>
+                    <li><strong>Alternative Dispute Resolution</strong> - WALSA (Mar 2025)</li>
+                    <li><strong>Effective Leadership</strong> - HP LIFE (Nov 2024)</li>
+                    <li><strong>Legal Writing & Research</strong> - Legal Eagles (Oct 2024)</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- INTERACTIVE SLIDER SECTION (PROJECTS & TESTIMONIALS) -->
+    <section id="slider-section" class="container">
+        <div class="glass-panel interactive-section">
+            
+            <!-- Tabs -->
+            <div class="tabs-header">
+                <button class="tab-btn active" onclick="openTab('projects')">Projects</button>
+                <button class="tab-btn" onclick="openTab('testimonials')">Testimonials</button>
+            </div>
+
+            <!-- PROJECTS SLIDER CONTAINER -->
+            <div id="projects" class="tab-content active-content">
+                <div class="slider-container">
+                    <!-- Project Slide 1 -->
+                    <div class="slide active-slide proj-slide">
+                        <h3>Legal Blog Post</h3>
+                        <p style="margin-bottom:10px; color:var(--text-dim)">Breakdown of ADR Mechanisms</p>
+                        <!-- REPLACE WITH PROJECT IMAGE -->
+                        <img src="assets/project1.jpg" class="project-img" alt="Project Screenshot 1">
+                        <br>
+                        <a href="#" class="cta-btn" style="padding: 8px 20px; font-size: 0.8rem;">Read Article</a>
+                    </div>
+                    
+                    <!-- Project Slide 2 -->
+                    <div class="slide proj-slide">
+                        <h3>SEO Content Strategy</h3>
+                        <p style="margin-bottom:10px; color:var(--text-dim)">Keyword research and content planning for startup.</p>
+                        <!-- REPLACE WITH PROJECT IMAGE -->
+                        <img src="assets/project2.jpg" class="project-img" alt="Project Screenshot 2">
+                        <br>
+                        <a href="#" class="cta-btn" style="padding: 8px 20px; font-size: 0.8rem;">View Strategy</a>
+                    </div>
+
+                    <!-- Navigation -->
+                    <div class="slider-nav">
+                        <button class="nav-arrow" onclick="plusSlides(-1, 'proj-slide')">&#10094;</button>
+                        <button class="nav-arrow" onclick="plusSlides(1, 'proj-slide')">&#10095;</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TESTIMONIALS SLIDER CONTAINER -->
+            <div id="testimonials" class="tab-content">
+                <div class="slider-container">
+                    
+                    <!-- Testimonial 1 -->
+                    <div class="slide active-slide test-slide">
+                        <p class="testimonial-text">"I can proudly say that Munachi is an exceptional individual with a strong work ethic... her passion shines through in everything she does. I wholeheartedly recommend her for any opportunity."</p>
+                        <div class="testimonial-author">
+                            <!-- REPLACE WITH IMAGE -->
+                            <img src="assets/precious.jpg" class="author-img" alt="Precious O.">
+                            <div>
+                                <h4>Precious O.</h4>
+                                <span>Marketing Research Analyst</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial 2 -->
+                    <div class="slide test-slide">
+                        <p class="testimonial-text">"Wowww. I am glad you didn't miss the tests. I must say, your story telling technique is very intriguing. Welldone Munachimso."</p>
+                        <div class="testimonial-author">
+                            <!-- REPLACE WITH IMAGE -->
+                            <img src="assets/amarachi.jpg" class="author-img" alt="Amarachi Okoroafor">
+                            <div>
+                                <h4>Amarachi Okoroafor</h4>
+                                <span>LL.B, First Class</span>
+                            </div>
+                        </div>
+                    </div>
+
+                     <!-- Testimonial 3 -->
+                    <div class="slide test-slide">
+                        <p class="testimonial-text">"This letter felt like a soft landing. Not just for your 100-level self... You didn't just tell a story, you wrapped it with compassion."</p>
+                        <div class="testimonial-author">
+                            <!-- REPLACE WITH IMAGE -->
+                            <img src="assets/adaramola.jpg" class="author-img" alt="Adaramola Olabode">
+                            <div>
+                                <h4>Adaramola Olabode</h4>
+                                <span>Email Strategist & Copywriter</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Navigation -->
+                    <div class="slider-nav">
+                        <button class="nav-arrow" onclick="plusSlides(-1, 'test-slide')">&#10094;</button>
+                        <button class="nav-arrow" onclick="plusSlides(1, 'test-slide')">&#10095;</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- CONTACT / FOOTER -->
+    <footer id="contact">
+        <h2>Ready to triple your results?</h2>
+        <p style="margin: 20px 0;">Available for Content Writing, Blog Management, and Ghostwriting.</p>
+        <a href="mailto:your-email@example.com" class="cta-btn">Contact Me</a>
+        <br><br>
+        <p>&copy; 2025 Munachimso Onwumere. All rights reserved.</p>
+    </footer>
+
+    <!-- JAVASCRIPT FOR TABS AND SLIDERS -->
+    <script>
+        // --- TAB LOGIC ---
+        function openTab(tabName) {
+            // Hide all tab content
+            var contents = document.getElementsByClassName("tab-content");
+            for (var i = 0; i < contents.length; i++) {
+                contents[i].classList.remove("active-content");
+            }
+
+            // Remove active class from buttons
+            var buttons = document.getElementsByClassName("tab-btn");
+            for (var i = 0; i < buttons.length; i++) {
+                buttons[i].classList.remove("active");
+            }
+
+            // Show current tab and activate button
+            document.getElementById(tabName).classList.add("active-content");
+            event.currentTarget.classList.add("active");
+        }
+
+        // --- SLIDER LOGIC ---
+        let projIndex = 1;
+        let testIndex = 1;
+
+        // Initialize
+        showSlides(projIndex, 'proj-slide');
+        showSlides(testIndex, 'test-slide');
+
+        function plusSlides(n, className) {
+            if (className === 'proj-slide') {
+                showSlides(projIndex += n, className);
+            } else {
+                showSlides(testIndex += n, className);
+            }
+        }
+
+        function showSlides(n, className) {
+            let i;
+            let slides = document.getElementsByClassName(className);
+            
+            // Handle wrapping
+            if (className === 'proj-slide') {
+                if (n > slides.length) { projIndex = 1 }
+                if (n < 1) { projIndex = slides.length }
+                n = projIndex;
+            } else {
+                if (n > slides.length) { testIndex = 1 }
+                if (n < 1) { testIndex = slides.length }
+                n = testIndex;
+            }
+
+            // Hide all slides of this type
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+                slides[i].classList.remove("active-slide");
+            }
+
+            // Show active slide
+            slides[n - 1].style.display = "block";
+            slides[n - 1].classList.add("active-slide");
+        }
+    </script>
+</body>
+</html>
