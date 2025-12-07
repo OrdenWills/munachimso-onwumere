@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,14 +9,16 @@
         /* --- CSS VARIABLES & RESET --- */
         :root {
             /* Brand Colors based on your images */
-            --brand-primary: #5c0012; /* Deep Burgundy */
-            --brand-secondary: #8a001a; /* Lighter Red */
+            --brand-primary: #88031d;
+            /* Deep Burgundy */
+            --brand-secondary: #6A000E;
+            /* Lighter Red */
             --text-light: #ffffff;
             --text-dim: #e0e0e0;
             --glass-bg: rgba(255, 255, 255, 0.08);
             --glass-border: rgba(255, 255, 255, 0.2);
             --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
-            --accent: #ffd700; /* Gold accent for "Premium" feel */
+            --accent: #D97676;
         }
 
         * {
@@ -61,10 +64,10 @@
             width: 100%;
             top: 0;
             z-index: 1000;
-            background: rgba(92, 0, 18, 0.8);
+            background: rgba(110, 1, 23, 0.8);
             backdrop-filter: blur(10px);
         }
-        
+
         .nav-content {
             display: flex;
             justify-content: space-between;
@@ -86,7 +89,8 @@
             transition: color 0.3s;
         }
 
-        .nav-links a:hover {
+        .nav-links a:hover,
+        .nav-links a.active {
             color: var(--accent);
         }
 
@@ -268,7 +272,8 @@
 
         /* Slider Container */
         .tab-content {
-            display: none; /* Hidden by default */
+            display: none;
+            /* Hidden by default */
             position: relative;
             min-height: 400px;
         }
@@ -289,8 +294,13 @@
         }
 
         @keyframes fadeEffect {
-            from {opacity: 0;}
-            to {opacity: 1;}
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
         }
 
         /* Project Slide Specifics */
@@ -335,7 +345,8 @@
             display: flex;
             justify-content: space-between;
             transform: translateY(-50%);
-            pointer-events: none; /* Let clicks pass through to content if needed */
+            pointer-events: none;
+            /* Let clicks pass through to content if needed */
         }
 
         .nav-arrow {
@@ -369,12 +380,24 @@
 
         /* Responsive */
         @media (max-width: 768px) {
-            .hero h1 { font-size: 2.5rem; }
-            .hero { flex-direction: column-reverse; text-align: center; }
-            .hero-img-container { width: 100%; max-width: 300px; height: 350px; }
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero {
+                flex-direction: column-reverse;
+                text-align: center;
+            }
+
+            .hero-img-container {
+                width: 100%;
+                max-width: 300px;
+                height: 350px;
+            }
         }
     </style>
 </head>
+
 <body>
 
     <!-- NAV -->
@@ -395,14 +418,15 @@
             <h2>Premium Content Writer</h2>
             <h1>Simplified Content That <span class="highlight">Resonates Better</span> & Triples Results.</h1>
             <p>
-                Law Student (LLB) & Certified SEO Writer. I bridge the gap between complex legal concepts and engaging, audience-driven content.
+                Law Student (LLB) & Certified SEO Writer. I bridge the gap between complex legal concepts and engaging,
+                audience-driven content.
             </p>
             <a href="mailto:your-email@example.com" class="cta-btn">Send a DM to Work 1:1</a>
         </div>
         <div class="hero-image">
             <div class="glass-panel hero-img-container">
                 <!-- REPLACE WITH YOUR IMAGE -->
-                <img src="assets/munachimso-profile.png" alt="Munachimso Onwumere"> 
+                <img src="assets/munachimso-profile.png" alt="Munachimso Onwumere">
             </div>
         </div>
     </header>
@@ -417,11 +441,11 @@
 
     <!-- EDUCATION & EXPERIENCE GRID -->
     <section id="about" class="container info-grid">
-        
+
         <!-- Experience Column -->
         <div>
             <h2 class="section-title">Experience & Volunteering</h2>
-            
+
             <div class="glass-panel info-card">
                 <h3>Content Writer</h3>
                 <h4>IADICEY</h4>
@@ -443,7 +467,7 @@
         <!-- Education Column -->
         <div>
             <h2 class="section-title">Education & Certifications</h2>
-            
+
             <div class="glass-panel info-card">
                 <h3>Bachelor of Laws (LLB)</h3>
                 <h4>Imo State University</h4>
@@ -466,7 +490,7 @@
     <!-- INTERACTIVE SLIDER SECTION (PROJECTS & TESTIMONIALS) -->
     <section id="slider-section" class="container">
         <div class="glass-panel interactive-section">
-            
+
             <!-- Tabs -->
             <div class="tabs-header">
                 <button class="tab-btn active" onclick="openTab('projects')">Projects</button>
@@ -476,6 +500,17 @@
             <!-- PROJECTS SLIDER CONTAINER -->
             <div id="projects" class="tab-content active-content">
                 <div class="slider-container">
+                    <!-- Project Slide 2 -->
+                    <div class="slide proj-slide">
+                        <h3>
+                            Insider Trading In Nigeria: An Overview</h3>
+                        <p style="margin-bottom:10px; color:var(--text-dim)">An SEO-optimized piece on insider trading in Nigeria and how it impacts investment, which currently ranks on Google's first page for the queries "insider trading in Nigeria" and "laws that govern insider trading in Nigeria".</p>
+                        <!-- REPLACE WITH PROJECT IMAGE -->
+                        <img src="assets/publica.webp" class="project-img" alt="Project Screenshot 2">
+                        <br>
+                        <a href="https://munachimsoooo.medium.com/insider-trading-in-nigeria-an-overview-eab8a09cd629"
+                            class="cta-btn" style="padding: 8px 20px; font-size: 0.8rem;" target="_blank">Show Publication</a>
+                    </div>
                     <!-- Project Slide 1 -->
                     <div class="slide active-slide proj-slide">
                         <h3>Legal Blog Post</h3>
@@ -485,16 +520,8 @@
                         <br>
                         <a href="#" class="cta-btn" style="padding: 8px 20px; font-size: 0.8rem;">Read Article</a>
                     </div>
+
                     
-                    <!-- Project Slide 2 -->
-                    <div class="slide proj-slide">
-                        <h3>SEO Content Strategy</h3>
-                        <p style="margin-bottom:10px; color:var(--text-dim)">Keyword research and content planning for startup.</p>
-                        <!-- REPLACE WITH PROJECT IMAGE -->
-                        <img src="assets/project2.jpg" class="project-img" alt="Project Screenshot 2">
-                        <br>
-                        <a href="#" class="cta-btn" style="padding: 8px 20px; font-size: 0.8rem;">View Strategy</a>
-                    </div>
 
                     <!-- Navigation -->
                     <div class="slider-nav">
@@ -507,13 +534,22 @@
             <!-- TESTIMONIALS SLIDER CONTAINER -->
             <div id="testimonials" class="tab-content">
                 <div class="slider-container">
-                    
+
                     <!-- Testimonial 1 -->
                     <div class="slide active-slide test-slide">
-                        <p class="testimonial-text">"I can proudly say that Munachi is an exceptional individual with a strong work ethic... her passion shines through in everything she does. I wholeheartedly recommend her for any opportunity."</p>
+                        <p class="testimonial-text">"I can proudly say that Munachi is an exceptional individual with a
+                            strong work ethic and impressive skills. We were classmates in secondary school, and I've
+                            had the pleasure of watching her grow and develop her talents. Munachi consistently
+                            demonstrated a keen interest in writing and speaking, it is no surprise that she took the
+                            law path and yes! her passion shines through in everything she does.
+
+                            Her dedication, creativity, and ability to work well with others makes her an asset to any
+                            team. I'm confident that Munachi will excel in her future endeavors and make valuable
+                            contributions to her chosen field. I wholeheartedly recommend Onwumere Munachimso for any
+                            opportunity."</p>
                         <div class="testimonial-author">
                             <!-- REPLACE WITH IMAGE -->
-                            <img src="assets/precious.jpg" class="author-img" alt="Precious O.">
+                            <img src="assets/precious-o.jpeg" class="author-img" alt="Precious O.">
                             <div>
                                 <h4>Precious O.</h4>
                                 <span>Marketing Research Analyst</span>
@@ -523,26 +559,36 @@
 
                     <!-- Testimonial 2 -->
                     <div class="slide test-slide">
-                        <p class="testimonial-text">"Wowww. I am glad you didn't miss the tests. I must say, your story telling technique is very intriguing. Welldone Munachimso."</p>
+                        <p class="testimonial-text">"Munachimso is an excellence-oriented and diligent young
+                            professional. She is keen to details and very reliable. She delivers tasks within the
+                            expected timeframe. She has developed the requisite skillset expected of a young
+                            professional including legal research, creative writing, critical thinking, team leadership
+                            and a good sense of judgement. She is an asset to any team. She is honest and trustworthy. I
+                            highly recommend her!
+                            "</p>
                         <div class="testimonial-author">
                             <!-- REPLACE WITH IMAGE -->
-                            <img src="assets/amarachi.jpg" class="author-img" alt="Amarachi Okoroafor">
+                            <img src="assets/chisom-test.jpeg" class="author-img" alt="Amarachi Okoroafor">
                             <div>
-                                <h4>Amarachi Okoroafor</h4>
-                                <span>LL.B, First Class</span>
+                                <h4>Chisom Madubuike</h4>
+                                <span>LL.B (First Class Honors) | B.L Candidate, Nigerian Law School | Awardee, '25 Dr
+                                    Reginald Aziza Leadership-in-Law Scholarship</span>
                             </div>
                         </div>
                     </div>
 
-                     <!-- Testimonial 3 -->
+                    <!-- Testimonial 3 -->
                     <div class="slide test-slide">
-                        <p class="testimonial-text">"This letter felt like a soft landing. Not just for your 100-level self... You didn't just tell a story, you wrapped it with compassion."</p>
+                        <p class="testimonial-text">"Munachi is an ardent writer, a leader, an aspirational and goal
+                            driven young woman. she is definitely one you would love to connect with. Her content has
+                            left me thinking, implementing and motivated on various occasions."</p>
                         <div class="testimonial-author">
                             <!-- REPLACE WITH IMAGE -->
-                            <img src="assets/adaramola.jpg" class="author-img" alt="Adaramola Olabode">
+                            <img src="assets/alayonimi-test.jpeg" class="author-img" alt="Adaramola Olabode">
                             <div>
-                                <h4>Adaramola Olabode</h4>
-                                <span>Email Strategist & Copywriter</span>
+                                <h4>Alayonimi Adebolu</h4>
+                                <span>LLB Student • Campus Ambassador • Empowering law students to grow, lead & bridge
+                                    into professional life.</span>
                             </div>
                         </div>
                     </div>
@@ -607,7 +653,7 @@
         function showSlides(n, className) {
             let i;
             let slides = document.getElementsByClassName(className);
-            
+
             // Handle wrapping
             if (className === 'proj-slide') {
                 if (n > slides.length) { projIndex = 1 }
@@ -629,6 +675,56 @@
             slides[n - 1].style.display = "block";
             slides[n - 1].classList.add("active-slide");
         }
+
+        // --- ACTIVE NAVIGATION HIGHLIGHTING ---
+        // Get all sections that have an ID defined
+        const sections = document.querySelectorAll('section[id], header.hero, footer[id]');
+        const navLinks = document.querySelectorAll('.nav-links a');
+
+        // Create an intersection observer
+        const observerOptions = {
+            root: null,
+            rootMargin: '-20% 0px -70% 0px', // Trigger when section is 20% from top
+            threshold: 0
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    // Remove active class from all nav links
+                    navLinks.forEach(link => {
+                        link.classList.remove('active');
+                    });
+
+                    // Add active class to the corresponding nav link
+                    const id = entry.target.getAttribute('id');
+                    if (id) {
+                        const activeLink = document.querySelector(`.nav-links a[href="#${id}"]`);
+                        if (activeLink) {
+                            activeLink.classList.add('active');
+                        }
+                    }
+                }
+            });
+        }, observerOptions);
+
+        // Observe all sections
+        sections.forEach(section => {
+            observer.observe(section);
+        });
+
+        // Handle smooth scrolling for nav links
+        navLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetId = link.getAttribute('href');
+                const targetSection = document.querySelector(targetId);
+                if (targetSection) {
+                    targetSection.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
     </script>
 </body>
+
 </html>
